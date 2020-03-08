@@ -6,7 +6,6 @@ import Task from '../task';
 import './list-task.css';
 
 const ListTasks = ({count, items, changeActivity, removeTask, completed}) => {
-;
     return (
         <Container>
             <h1>Number of tasks : {count}</h1>
@@ -14,11 +13,10 @@ const ListTasks = ({count, items, changeActivity, removeTask, completed}) => {
                 {
                     items.map( taskItem => {
                         return <Task
+                            key={taskItem.id}
                             taskItem={taskItem}
-                            key={taskItem}
-                            completed={completed}
-                            onChangeActivity = {() => changeActivity()}
-                            onRemoveTask = {() => removeTask(taskItem)}/>
+                            onChangeActivity = {() => changeActivity(taskItem.id)}
+                            onRemoveTask = {() => removeTask(taskItem.id)}/>
                     })
                 }
             </div>
@@ -27,11 +25,10 @@ const ListTasks = ({count, items, changeActivity, removeTask, completed}) => {
     );
 };
 
-const mapStateToProps = ({items, count, completed}) => {
+const mapStateToProps = ({items, count}) => {
     return {
         items,
-        count, 
-        completed
+        count
     }
 };
 

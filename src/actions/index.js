@@ -1,18 +1,20 @@
-const addTask = () => {
+const addTask = (id) => {
     return {
-        type : 'ADD_TASK'
+        type : 'ADD_TASK',
+        id: id
     };
 };
 
-const changeActivity = () => {
+const changeActivity = (id) => {
     return {
-        type : 'CHANGE_ACTIVITY'
+        type : 'CHANGE_ACTIVITY',
+        id: id
     };
 };
 const removeTask = (id) => {
     return {
         type : 'REMOVE_TASK',
-        payload: id
+        id: id
     };
 };
 
