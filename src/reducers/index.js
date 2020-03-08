@@ -43,6 +43,27 @@ const reducer = (state = initialState, action) => {
                 count : newListAfterRemove.length
             };
 
+        case 'SHOW_ALL_TASKS' :
+            const allTasks = state.items.filter(item => item.completed === false || item.completed === true);
+            return {
+                items: allTasks,
+                count: allTasks.length
+            };
+
+        case 'SHOW_ACTIVE_TASKS' :
+            const activeTasks = state.items.filter(item => item.completed === false);
+            return {
+                items: activeTasks,
+                count: activeTasks.length
+            };
+
+        case 'SHOW_COMPLETED_TASKS' :
+            const completedTasks = state.items.filter(item => item.completed === true);
+            return {
+                items: completedTasks,
+                count: completedTasks.length
+            };
+
         default:
             return state;
     }

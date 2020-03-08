@@ -17,9 +17,27 @@ const removeTask = (id) => {
         id: id
     };
 };
+const showAllTasks = () => {
+    return {
+        type : 'SHOW_ALL_TASKS'
+    };
+};
+const showActiveTasks = () => {
+    return {
+        type : 'SHOW_ACTIVE_TASKS'
+    };
+};
+const showCompletedTasks = () => {
+    return {
+        type : 'SHOW_COMPLETED_TASKS'
+    };
+};
 
 export {
     addTask,
     changeActivity,
-    removeTask
+    removeTask,
+    showActiveTasks,
+    showAllTasks,
+    showCompletedTasks
 };
