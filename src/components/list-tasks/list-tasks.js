@@ -3,12 +3,14 @@ import {connect} from 'react-redux';
 import {Container} from 'reactstrap';
 import {changeActivity, removeTask} from '../../actions';
 import Task from '../task';
-import './list-task.css';
 
-const ListTasks = ({count, items, changeActivity, removeTask, completed}) => {
+const ListTasks = ({count, items, changeActivity, removeTask}) => {
+    let countCompletedTask = 0;
+    items.map( item =>  item.completed === true ? countCompletedTask += 1 : countCompletedTask += 0 );
+
     return (
         <Container>
-            <h1>Number of tasks : {count}</h1>
+            <h1>Completed {countCompletedTask}/{count}</h1>
             <div>
                 {
                     items.map( taskItem => {

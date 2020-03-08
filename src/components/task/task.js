@@ -1,9 +1,14 @@
 import React from 'react';
 import {Card, CardBody, CardTitle, CardText, Button, Label, Input   } from 'reactstrap';
+import './task.css';
 
 const Task = ({taskItem, onChangeActivity, onRemoveTask}) => {
+    let newClassItem = '';
+    if (taskItem.completed) {
+        newClassItem = 'completedTask';
+    }
     return (
-            <Card >
+            <Card className = {newClassItem}>
                 <Label check>
                     <CardBody>
                             <Input onClick={() => onChangeActivity()} type="checkbox" />
