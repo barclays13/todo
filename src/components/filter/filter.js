@@ -16,10 +16,8 @@ const Filter = ({showActiveTasks, showAllTasks, showCompletedTasks}) => {
     );
 };
 
-const mapStateToProps = ({count}) => {
-    return {
-        count
-    }
+const mapStateToProps = () => {
+    return{}
 };
 
 const mapDispatchToProps = {

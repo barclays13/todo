@@ -1,6 +1,5 @@
 const initialState = {
     items: [],
-    count:0, 
     itemsFilter: [],
     filter: ''
 }
@@ -15,7 +14,6 @@ const reducer = (state = initialState, action) => {
             })
             return {
                 items: state.items,
-                count: state.items.length, 
                 itemsFilter: [],
                 filter: 'ALL'
             };
@@ -33,7 +31,6 @@ const reducer = (state = initialState, action) => {
             ];
             return {
                 items : newListAfterChangeCompl,
-                count : newListAfterChangeCompl.length, 
                 itemsFilter: [],
                 filter: 'ALL'
             };
@@ -46,7 +43,6 @@ const reducer = (state = initialState, action) => {
             ];
             return {
                 items : newListAfterRemove,
-                count : newListAfterRemove.length, 
                 itemsFilter: [],
                 filter: 'ALL'
             };
@@ -55,7 +51,6 @@ const reducer = (state = initialState, action) => {
             const allTasks = state.items.filter(item => item.completed === false || item.completed === true);
             return {
                 items: state.items,
-                count: allTasks.length, 
                 itemsFilter: allTasks,
                 filter: 'ALL'
             };
@@ -65,7 +60,6 @@ const reducer = (state = initialState, action) => {
             const activeTasks = state.items.filter(item => item.completed === false);
             return {
                 items: state.items,
-                count: activeTasks.length,
                 itemsFilter: activeTasks,
                 filter: 'ACTIVE'
             };
@@ -74,7 +68,6 @@ const reducer = (state = initialState, action) => {
             const completedTasks = state.items.filter(item => item.completed === true);
             return {
                 items: state.items,
-                count: completedTasks.length,
                 itemsFilter: completedTasks,
                 filter: 'COMPLETED'
             };

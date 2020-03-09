@@ -18,11 +18,13 @@ const AddTask = ({addTask}) => {
         </Container>
     );
 };
-const mapStateToProps = ({count}) => {
-    return {
-        count
+
+const mapStateToProps = (items) => {
+    return{
+        items
     }
 };
+
 const mapDispatchToProps = {
     addTask
 };

@@ -7,8 +7,8 @@ const App = () => {
     return (
         <div className="app">
             <AddTask/>
-            <ListTasks/>
             <Filter/>
+            <ListTasks/>
         </div>
     )
 }
