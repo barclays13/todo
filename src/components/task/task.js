@@ -11,11 +11,11 @@ const Task = ({taskItem, onChangeActivity, onRemoveTask}) => {
             <Card className = {newClassItem}>
                 <Label check>
                     <CardBody>
-                            <Input onClick={() => onChangeActivity()} type="checkbox" />
+                            <Input className="task-check" onClick={() => onChangeActivity()} type="checkbox" />
                             <CardTitle>
                                 <Button onClick={() => onRemoveTask()} close/>
                             </CardTitle>
-                            <CardText>{taskItem.text}</CardText>
+                            <CardText className="task-text">{taskItem.text}</CardText>
                     </CardBody>
                 </Label>
             </Card>

@@ -4,9 +4,14 @@ import {Container} from 'reactstrap';
 import {changeActivity, removeTask} from '../../actions';
 import Task from '../task';
 
-const ListTasks = ({count, items, changeActivity, removeTask}) => {
+const ListTasks = ({count, items, changeActivity, removeTask, itemsFilter, filter}) => {
     let countCompletedTask = 0;
     items.map( item =>  item.completed === true ? countCompletedTask += 1 : countCompletedTask += 0 );
+    if (filter === 'ACTIVE') {
+        items = itemsFilter;
+    } else if (filter === 'COMPLETED') {
+        items = itemsFilter;
+    } 
 
     return (
         <Container>
@@ -27,10 +32,12 @@ const ListTasks = ({count, items, changeActivity, removeTask}) => {
     );
 };
 
-const mapStateToProps = ({items, count}) => {
+const mapStateToProps = ({items, count, itemsFilter, filter}) => {
     return {
         items,
-        count
+        count,
+        itemsFilter,
+        filter
     }
 };
 

@@ -1,3 +1,12 @@
 .completedTask{
     text-decoration: line-through;
 }
+
+.task-text {
+    margin: -25px 0 -12px 25px;
+    font-size: 30px;
+}
+
+.task-check {
+    left: 30px;
+}

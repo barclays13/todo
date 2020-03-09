@@ -1,6 +1,8 @@
 const initialState = {
     items: [],
-    count:0
+    count:0, 
+    itemsFilter: [],
+    filter: ''
 }
 
 const reducer = (state = initialState, action) => {
@@ -13,7 +15,9 @@ const reducer = (state = initialState, action) => {
             })
             return {
                 items: state.items,
-                count: state.items.length
+                count: state.items.length, 
+                itemsFilter: [],
+                filter: 'ALL'
             };
 
         case 'CHANGE_ACTIVITY':
@@ -29,7 +33,9 @@ const reducer = (state = initialState, action) => {
             ];
             return {
                 items : newListAfterChangeCompl,
-                count : newListAfterChangeCompl.length
+                count : newListAfterChangeCompl.length, 
+                itemsFilter: [],
+                filter: 'ALL'
             };
 
         case 'REMOVE_TASK':
@@ -40,28 +46,37 @@ const reducer = (state = initialState, action) => {
             ];
             return {
                 items : newListAfterRemove,
-                count : newListAfterRemove.length
+                count : newListAfterRemove.length, 
+                itemsFilter: [],
+                filter: 'ALL'
             };
 
         case 'SHOW_ALL_TASKS' :
             const allTasks = state.items.filter(item => item.completed === false || item.completed === true);
             return {
-                items: allTasks,
-                count: allTasks.length
+                items: state.items,
+                count: allTasks.length, 
+                itemsFilter: allTasks,
+                filter: 'ALL'
             };
 
         case 'SHOW_ACTIVE_TASKS' :
+
             const activeTasks = state.items.filter(item => item.completed === false);
             return {
-                items: activeTasks,
-                count: activeTasks.length
+                items: state.items,
+                count: activeTasks.length,
+                itemsFilter: activeTasks,
+                filter: 'ACTIVE'
             };
 
         case 'SHOW_COMPLETED_TASKS' :
             const completedTasks = state.items.filter(item => item.completed === true);
             return {
-                items: completedTasks,
-                count: completedTasks.length
+                items: state.items,
+                count: completedTasks.length,
+                itemsFilter: completedTasks,
+                filter: 'COMPLETED'
             };
 
         default:
