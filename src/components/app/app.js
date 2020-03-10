@@ -5,7 +5,7 @@ import ListTasks from '../list-tasks';
 
 const App = () => {
     return (
-        <div className="app">
+        <div>
             <AddTask/>
             <Filter/>
             <ListTasks/>
